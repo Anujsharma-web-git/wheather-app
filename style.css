@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(93, 85, 85);
+
+}
+
+.card {
+    width: 80%;
+    max-width: 480px;
+    background: linear-gradient(90deg, rgba(165, 223, 180, 1) 0%, rgba(149, 245, 160, 1) 8%, rgba(18, 215, 214, 1) 38%, rgba(74, 208, 171, 1) 94%);
+    color: aliceblue;
+    margin: 100px auto 0;
+    padding: 45px 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.search {
+    width: 85%;
+    display: flex;
+    align-items: center;
+
+    justify-content: space-around;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    height: 50px;
+    border-radius: 60px;
+    background-color: aliceblue;
+    color: rgb(124, 116, 116);
+    padding: 5px 20px;
+    margin-left: 30px;
+    margin-right: 10px;
+    font-size: 20px;
+    flex: 1;
+}
+
+.search button {
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    background-color: aliceblue;
+    
+
+
+}
+
+.search button img {
+    width: 16px;
+}
+
+.wheather-icon {
+    width: 190px;
+    margin-top: 30px;
+}
+
+.temp {
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.wheather h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    padding: 0 20px;
+
+
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 50px;
+    margin-right: 10px;
+}
+.humidity ,.wind{
+    font-size: 40px;
+    margin-top: -10px;
+}
+.wheather{
+    display: none;
+}

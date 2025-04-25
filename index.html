@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wheather-app</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="search">
+      <input type="text" spellcheck="true" class="txt" placeholder=" enter the city name">
+      <button class="searchbtn"><img src="search.png"></button>
+    </div>
+    <div class="wheather">
+      <div class="monsoon">
+        <img src="rain.png" class="wheather-icon">
+        <h1 class="temp">22°c</h1>
+        <h2 class="city">newyork</h2>
+      </div>
+      <div class="detail">
+     <div class="col">
+      <img src="humidity.png" >
+      <div>
+        <p class="humidity">50%</p>
+        <p>humidity</p>
+      </div>
+     </div>
+     <div class="col">
+      <img src="wind.png">
+      <div>
+        <p class="wind">15km/h</p>
+        <p>wind speed</p>
+      </div>
+    </div>
+
+     </div>
+    </div>
+  </div>
+
+  <script>
+ let searchbox = document.querySelector(".search input");
+ let searchbtn1 = document.querySelector(".search button");
+ let icon1 = document.querySelector(".wheather-icon")
+
+    const apiurl="https://api.openweathermap.org/data/2.5/weather?&units=metric&q="
+    const apikey="83a7d213bd61623e86f71343146a289a"
+    async function checkwheather(city) {
+      const response = await fetch(apiurl + city + `&appid=${apikey}`);
+      var data = await response.json();
+      console.log(data)
+
+      document.querySelector(".city").innerHTML=data.name;
+      document.querySelector(".temp").innerHTML=Math.round(data.main.temp)+"°c";
+      document.querySelector(".wind").innerHTML=data.wind.speed+"km/h";
+      document.querySelector(".humidity").innerHTML=data.main.humidity+"%";
+    
+      if (data.weather[0].main =="Clear"){
+        icon1.src = "clear.png";
+      }
+      else if (data.weather[0].main=="Clouds") {
+        icon1.src ="clouds.png"
+      }
+      else if (data.weather[0].main=="Mist") {
+        icon1.src ="mist.png"
+      }
+      else if (data.weather[0].main=="Rain") {
+        icon1.src ="rain.png"
+      }
+      else if (data.weather[0].main=="Snow") {
+        icon1.src ="snow.png"
+      }
+      document.querySelector(".wheather").style.display="block"
+    }
+
+    
+     searchbtn1.addEventListener("click",()=>{
+      checkwheather(searchbox.value);
+
+      
+     })
+    
+  </script>
+</body>
+
+</html>
